@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sad Town - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Sad Story</h1>
+        <div class="videos">
+            <div>
+                <h3>Original Video</h3>
+                <video controls width="400">
+                    <source src="{{ url_for('static', filename='uploads/input.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+            <div>
+                <h3>Processed Video</h3>
+                <video controls width="400">
+                    <source src="{{ url_for('static', filename='processed/output.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="story">
+            <h3>Video Caption</h3>
+            <p>{{ caption }}</p>
+            <h3>Your Sad Story</h3>
+            <p>{{ story }}</p>
+        </div>
+        <a href="/" class="button">Upload Another</a>
+    </div>
+</body>
+
+</html>
