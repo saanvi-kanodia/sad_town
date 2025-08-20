@@ -4,7 +4,7 @@ import cv2
 import time
 from flask import Flask, render_template, request, Response
 from transformers import pipeline
-import dotenv
+from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
@@ -70,7 +70,7 @@ def generate_video_caption(video_path):
                 caption = response.json()[0]["generated_text"]
                 return caption
             else:
-                return  API unavailable."
+                return  "API unavailable."
         else:
             print(f"API Error: {response.status_code} - {response.text}")
             return f"API Error: {response.status_code}"
