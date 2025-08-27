@@ -1,8 +1,6 @@
-python-dotenv
-numpy==1.26.4
 flask
 opencv-python
-transformers
-torch
-pillow
-requests
+Pillow
+google-generativeai
+python-dotenv   # for managing your GEMINI_API_KEY in .env
+gunicorn        # if you plan to deploy

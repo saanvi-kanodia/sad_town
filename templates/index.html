@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sad Town App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Sad Town 😢</h1>
+        <p>Upload a video to remove its background and generate a sad story.</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*" required>
+            <button type="submit">Upload & Process</button>
+        </form>
+    </div>
+</body>
+
+</html>

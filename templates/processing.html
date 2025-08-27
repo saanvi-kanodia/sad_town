@@ -39,12 +39,14 @@
         const statusText = document.getElementById('status');
         const eventSource = new EventSource('/process');
 
+        let caption = "";
+        let story = "";
+
         eventSource.onmessage = function (event) {
             const data = event.data;
             if (data === 'done') {
                 eventSource.close();
                 statusText.textContent = 'Done! Redirecting...';
-                // Redirect to result page after a short delay
                 setTimeout(() => {
                     window.location.href = '/result?caption=' + encodeURIComponent(caption) + '&story=' + encodeURIComponent(story);
                 }, 1000);
@@ -52,16 +54,11 @@
                 progressBar.style.width = data + '%';
                 progressBar.textContent = data + '%';
                 statusText.textContent = 'Processing: ' + data + '%';
-            } else if (caption === undefined) {
+            } else if (caption === "") {
                 caption = data;
             } else {
                 story = data;
             }
-        };
-
-        eventSource.onerror = function () {
-            statusText.textContent = 'Error occurred. Please try again.';
-            eventSource.close();
         };
     </script>
 </body>
